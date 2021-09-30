@@ -1,0 +1,148 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AxeptaSDKClient
+@_exported import AxeptaSDKClient
+import Foundation
+import PassKit
+import SafariServices
+import Swift
+import UIKit
+import WebKit
+public enum Brand : Swift.String {
+  case amex
+  case diners
+  case mastercard
+  case visa
+  case maestro
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class AXPPaymentManager : ObjectiveC.NSObject {
+  public static let shared: AxeptaSDKClient.AXPPaymentManager
+  public func executeDirectPaymentWith(itemId: Swift.String, circuit: AxeptaSDKClient.Circuit, language: Swift.String, countryCode: Swift.String = "IT", present: Swift.Bool = true, paymentDelegate: AxeptaSDKClient.PaymentDelegate? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension AXPPaymentManager : AxeptaSDKClient.AXEPTA_WebViewControllerDelegate, WebKit.WKNavigationDelegate {
+  @objc dynamic public func closeWebViewByUser()
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+}
+@objc @_hasMissingDesignatedInitializers public class AXPBankSelectorWidget : UIKit.UIView, AxeptaSDKClient.AXPPaymentWidget {
+  public typealias BackButtonCallback = () -> Swift.Void
+  public var itemId: Swift.String? {
+    get
+    set
+  }
+  weak public var delegate: AxeptaSDKClient.PaymentDelegate?
+  public init(mode: AxeptaSDKClient.Modality, language: Swift.String, borderRadiusButton: CoreGraphics.CGFloat, borderRadiusTextField: CoreGraphics.CGFloat, delegate: AxeptaSDKClient.PaymentDelegate)
+  public func payNow()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
+}
+extension AXPBankSelectorWidget : UIKit.UITextFieldDelegate {
+}
+@objc @_hasMissingDesignatedInitializers public class AXPCreditCardWidget : UIKit.UIView, AxeptaSDKClient.AXPPaymentWidget {
+  public var delegate: AxeptaSDKClient.PaymentDelegate?
+  public var itemId: Swift.String? {
+    get
+    set
+  }
+  @objc public init(viewMode: AxeptaSDKClient.Modality, lang: Swift.String, borderRadiusButton: CoreGraphics.CGFloat, borderRadiusTextFields: CoreGraphics.CGFloat, delegate: AxeptaSDKClient.PaymentDelegate)
+  @objc override dynamic public func layoutSubviews()
+  @objc public func payNow()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
+}
+extension AXPCreditCardWidget : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textFieldShouldBeginEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc dynamic public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+  @objc dynamic public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc dynamic public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @objc dynamic public func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+}
+extension AXPCreditCardWidget : WebKit.WKNavigationDelegate {
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+}
+extension AXPCreditCardWidget : AxeptaSDKClient.AXEPTA_WebViewControllerDelegate {
+  @objc dynamic public func closeWebViewByUser()
+}
+public enum Circuit : Swift.String, Swift.CustomStringConvertible {
+  case creditCard
+  case weChat
+  case aliPay
+  case bancomatPay
+  case satisPay
+  case applePay
+  case myBank
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc public enum Modality : Swift.Int {
+  case defaultMode
+  case compactMode
+  case inlineMode
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension UIView {
+  public func attachTo(_ view: UIKit.UIView)
+}
+@objc public protocol AXEPTA_WebViewControllerDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func closeWebViewByUser()
+}
+public typealias BackButtonCallback = () -> Swift.Void
+@objc public protocol PaymentDelegate {
+  @objc func onPaymentFinished()
+  @objc func onPaymentError(titolo: Swift.String?, messaggio: Swift.String?)
+  @objc func onPaymentCanceled()
+  @objc func enablePayButton(enabled: Swift.Bool)
+}
+@_inheritsConvenienceInitializers @objc public class Axepta : ObjectiveC.NSObject {
+  public static let shared: AxeptaSDKClient.Axepta
+  public var creditCardMode: AxeptaSDKClient.Modality
+  public var appleMerchantIdentifier: Swift.String?
+  @objc override dynamic public init()
+  public func configure(endPointUrl: Swift.String, licenseKey: Swift.String, enableDebug: Swift.Bool = false)
+  public func createPaymentContext(_ itemId: Swift.String, countryCode: Swift.String = "IT", present: Swift.Bool = false, paymentDelegate: AxeptaSDKClient.PaymentDelegate? = nil)
+  public func showVersionNumber()
+  @objc deinit
+}
+extension Axepta : AxeptaSDKClient.AXEPTA_WebViewControllerDelegate, WebKit.WKNavigationDelegate {
+  @objc dynamic public func closeWebViewByUser()
+  @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+}
+public protocol AXPPaymentWidget : UIKit.UIView {
+  var delegate: AxeptaSDKClient.PaymentDelegate? { get set }
+  var itemId: Swift.String? { get set }
+  func payNow()
+}
+@objc @_hasMissingDesignatedInitializers public class AXPPhoneNumberWidget : UIKit.UIView, AxeptaSDKClient.AXPPaymentWidget {
+  public var itemId: Swift.String?
+  weak public var delegate: AxeptaSDKClient.PaymentDelegate?
+  public typealias BackButtonCallback = () -> Swift.Void
+  @objc deinit
+  public init(mode: AxeptaSDKClient.Modality, circuit: AxeptaSDKClient.Circuit, language: Swift.String, borderRadiusButton: CoreGraphics.CGFloat, borderRadiusTextField: CoreGraphics.CGFloat, delegate: AxeptaSDKClient.PaymentDelegate)
+  @objc public func payNow()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+}
+extension AxeptaSDKClient.Brand : Swift.Equatable {}
+extension AxeptaSDKClient.Brand : Swift.Hashable {}
+extension AxeptaSDKClient.Brand : Swift.RawRepresentable {}
+extension AxeptaSDKClient.Circuit : Swift.Equatable {}
+extension AxeptaSDKClient.Circuit : Swift.Hashable {}
+extension AxeptaSDKClient.Circuit : Swift.RawRepresentable {}
+extension AxeptaSDKClient.Modality : Swift.Equatable {}
+extension AxeptaSDKClient.Modality : Swift.Hashable {}
+extension AxeptaSDKClient.Modality : Swift.RawRepresentable {}

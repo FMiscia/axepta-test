@@ -6,14 +6,29 @@
 //
 
 import UIKit
+import AxeptaSDKClient
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        Axepta.shared.createPaymentContext("payment-id", countryCode: "IT", present: true)
     }
+}
 
-
+extension ViewController: AxeptaSDKClient.PaymentDelegate {
+  func enablePayButton(enabled: Bool) {
+  }
+  
+  func onPaymentFinished() {
+    print("iap: onPaymentFinished")
+  }
+  
+  func onPaymentError(titolo: String?, messaggio: String?) {
+    print("iap: onPaymentError")
+  }
+  
+  func onPaymentCanceled() {
+    print("iap: onPaymentCanceled")
+  }
 }
 

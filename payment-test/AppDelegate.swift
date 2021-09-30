@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AxeptaSDKClient
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Axepta.shared.configure(endPointUrl: "https://pay-sandbox.axepta.it", licenseKey: "INSERT_LICENSE_KEY", enableDebug: true)
         return true
     }
 

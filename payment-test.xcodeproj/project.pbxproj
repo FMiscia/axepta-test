@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		8B30E94226F0D76C00AA4D3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B30E94026F0D76C00AA4D3C /* LaunchScreen.storyboard */; };
 		8B30E94D26F0D76C00AA4D3C /* payment_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30E94C26F0D76C00AA4D3C /* payment_testTests.swift */; };
 		8B30E95826F0D76C00AA4D3C /* payment_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30E95726F0D76C00AA4D3C /* payment_testUITests.swift */; };
+		8B30E96726F0D80400AA4D3C /* AxeptaSDKClient.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30E96526F0D7CE00AA4D3C /* AxeptaSDKClient.xcframework */; };
+		8B30E96826F0D80400AA4D3C /* AxeptaSDKClient.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30E96526F0D7CE00AA4D3C /* AxeptaSDKClient.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B30E96B26F0D8AB00AA4D3C /* AXPCustomizations.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B30E96A26F0D8AB00AA4D3C /* AXPCustomizations.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8B30E96926F0D80400AA4D3C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B30E96826F0D80400AA4D3C /* AxeptaSDKClient.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8B30E93226F0D76800AA4D3C /* payment-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "payment-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B30E93526F0D76800AA4D3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +66,8 @@
 		8B30E95326F0D76C00AA4D3C /* payment-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "payment-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B30E95726F0D76C00AA4D3C /* payment_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = payment_testUITests.swift; sourceTree = "<group>"; };
 		8B30E95926F0D76C00AA4D3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B30E96526F0D7CE00AA4D3C /* AxeptaSDKClient.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = AxeptaSDKClient.xcframework; sourceTree = "<group>"; };
+		8B30E96A26F0D8AB00AA4D3C /* AXPCustomizations.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AXPCustomizations.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B30E96726F0D80400AA4D3C /* AxeptaSDKClient.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +99,8 @@
 		8B30E92926F0D76800AA4D3C = {
 			isa = PBXGroup;
 			children = (
+				8B30E96A26F0D8AB00AA4D3C /* AXPCustomizations.xcassets */,
+				8B30E96526F0D7CE00AA4D3C /* AxeptaSDKClient.xcframework */,
 				8B30E93426F0D76800AA4D3C /* payment-test */,
 				8B30E94B26F0D76C00AA4D3C /* payment-testTests */,
 				8B30E95626F0D76C00AA4D3C /* payment-testUITests */,
@@ -138,6 +160,7 @@
 				8B30E92E26F0D76800AA4D3C /* Sources */,
 				8B30E92F26F0D76800AA4D3C /* Frameworks */,
 				8B30E93026F0D76800AA4D3C /* Resources */,
+				8B30E96926F0D80400AA4D3C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +257,7 @@
 				8B30E94226F0D76C00AA4D3C /* LaunchScreen.storyboard in Resources */,
 				8B30E93F26F0D76C00AA4D3C /* Assets.xcassets in Resources */,
 				8B30E93D26F0D76800AA4D3C /* Main.storyboard in Resources */,
+				8B30E96B26F0D8AB00AA4D3C /* AXPCustomizations.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

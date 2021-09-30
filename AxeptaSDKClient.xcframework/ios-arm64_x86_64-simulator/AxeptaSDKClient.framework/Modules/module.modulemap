@@ -1,0 +1,11 @@
+framework module AxeptaSDKClient {
+  umbrella header "AxeptaSDKClient.h"
+
+  export *
+  module * { export * }
+}
+
+module AxeptaSDKClient.Swift {
+    header "AxeptaSDKClient-Swift.h"
+    requires objc
+}
